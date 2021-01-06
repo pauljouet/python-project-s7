@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+
+    <h1>Hello {{ name | capitalize }} !</h1>
+    {% if name == 'paul' %}
+        
+        <p>Wesh l'admin bien ?</p>
+        <p>bloc de la page, on est bon</p>
+        <div>
+            <button class="btn btn-primary btn-lg btn-block">Test</button>
+        </div>
+    {% endif %}
+{% endblock %}
+
+
+<p>bon ciao</p>

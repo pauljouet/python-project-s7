@@ -1,0 +1,14 @@
+{% extends 'bootstrap/base.html' %}
+{% block content %}
+
+    <h1>Hello World !</h1>
+
+    {% block page_content %}
+        <p>bloc de base de la page, à remplacer</p>
+        <div>
+            <button class="btn btn-primary btn-lg btn-block">Test (inutile)</button>
+        </div>
+        
+    {% endblock %}
+
+{% endblock %}
