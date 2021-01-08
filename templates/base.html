@@ -1,14 +1,18 @@
 {% extends 'bootstrap/base.html' %}
 {% block content %}
 
-    <h1>Hello World !</h1>
-
+    
+    <div class= 'container'>
     {% block page_content %}
-        <p>bloc de base de la page, à remplacer</p>
+
+    <h1>Welcome to our project API !</h1>
+        <p class="text-justify">Our dataset contains more than 500.000 songs, with 90 features representing timbres as real numbers.</p>
+        <p class="text-justify">The target is the release year of the song, between 1922 and 2011</p>
+        <p class="text-justify">You will be invited to enter some values in order to use our model...</p>
         <div>
-            <button class="btn btn-primary btn-lg btn-block">Test (inutile)</button>
+            <a href="prediction"><button class="btn btn-link">Access form</button></a>
         </div>
         
     {% endblock %}
-
+    </div>
 {% endblock %}

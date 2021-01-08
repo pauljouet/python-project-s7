@@ -36,7 +36,7 @@ def prediction_form():
     if request.method == "POST" and form.validate_on_submit(): # request is available only within a decorated func
         # import joblib
         # model = joblib.load('models/nomModel')
-        # session['results'] = model.predict([.....])
+        session['results'] = None#model.predict([.....])
         return redirect("/results")
     return render_template('prediction_form.html', form= form)
     
