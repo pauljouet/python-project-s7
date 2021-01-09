@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block page_content %}
+    <h1>Choose your song !</h1>
+    <ul class="list-group">
+        <li class="list-group-item">Song 1 was released in 1927</li>
+        <li class="list-group-item">Song 2 was released in 1945</li>
+        <li class="list-group-item">Song 3 was released in 1978</li>
+        <li class="list-group-item">Song 4 was released in 1999</li>
+        <li class="list-group-item">Song 5 was released in 2005</li>
+        <li class="list-group-item">Song 6 was released in 2009</li>
+    </ul>
+    {{ wtf.quick_form(form) }}
+{% endblock %}

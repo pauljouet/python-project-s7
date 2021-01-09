@@ -3,6 +3,8 @@
 
 {% block page_content %}
     <h1>Let's begin !</h1>
-    <p>Our dataset </p>
+    <p>As we mentioned, our dataset only contains values of timbres, for us humans it is difficult to interpret, so there is no point in making you choose different features to make a prediction, as it would be totally random...</p>
+    <p>What we will do instead, is let you choose between some songs with different release years, and show you what our model predicts. We will also show you all the metrics relative to the testing set predictions !</p>
+    <p>But first, tell us more about yourself...</p>
     {{ wtf.quick_form(form) }}
 {% endblock %}

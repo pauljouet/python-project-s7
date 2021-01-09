@@ -18,27 +18,39 @@ class EnterYourInfos(FlaskForm):
     sex = SelectField("Sex", choices= [('0', 'Homme'), ('1', 'Femme')], validators= [InputRequired([('0', 'Homme'), ('1', 'Femme')])], coerce= int)
     submit = SubmitField("Submit")
 
+class ChooseSong(FlaskForm):
+    song = SelectField("Song", choices= [('1', 'Song 1'),('2', 'Song 2'),('3', 'Song 3'),('4', 'Song 4'),('5', 'Song 5'),('6', 'Song 6')], 
+    validators=[InputRequired([('1', 'Song 1'), ('2', 'Song 2'),('3', 'Song 3'),('4', 'Song 4'),('5', 'Song 5'),('6', 'Song 6')])], coerce= int)
+    model= SelectField("Model", choices= [('models/model1_sgd_epochs100', 'SGD model'), ('models/model2_adam_tuned_epochs30', 'Adam model')],
+    validators=[InputRequired([('models/model1_sgd_epochs100', 'SGD model'), ('models/model2_adam_tuned_epochs30', 'Adam model')])], coerce=str)
+    submit= SubmitField('Confirm')
+
 @app.route('/')
 def index():
     return render_template('base.html')
 
-@app.route('/<name>')
-def welcome_name(name):
-    return render_template('custom_hello.html', name= name)
-
-@app.route('/<int:age>')
-def welcome_age(age):
-    return "<h1>Hello {}</h1>".format(age)
 
 @app.route('/prediction', methods= ["GET", "POST"])
 def prediction_form():
     form = EnterYourInfos()
     if request.method == "POST" and form.validate_on_submit(): # request is available only within a decorated func
-        # import joblib
-        # model = joblib.load('models/nomModel')
-        session['results'] = None#model.predict([.....])
-        return redirect("/results")
+        
+        session['username'] = form.name.data
+        session['age'] = form.age.data
+        session['sex'] = form.sex.data
+        return redirect("/choose_song")
     return render_template('prediction_form.html', form= form)
+
+@app.route('/choose_song', methods= ["GET", "POST"])
+def choose_song():
+    form = ChooseSong()
+    if request.method == "POST" and form.validate_on_submit():
+        chosen_song = form.song.data
+        from keras.models import load_model
+        chosen_model = load_model(form.model.data)
+        session['results'] = (chosen_model.predict(chosen_song) * 89) + 1922
+        return redirect("/results")
+    return render_template('choose_song.html', form=form)
     
 @app.route("/results")
 def results():
