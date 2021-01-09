@@ -1,5 +1,19 @@
 {% extends 'base.html' %}
 
 {% block page_content %}
-
+<h1>Results</h1>
+<p>The predicted year is ...</p>
+<h3>{{ 2020 - age }} !</h3>
+<p>Oh sorry, um...</p>
+{% if sex == 0 %}
+<p>Mister {{ name | capitalize }}</p> 
+{% else %}
+<p>Miss {{ name | capitalize }}</p> 
+{% endif %}
+<p>I think I have been confusing with your birth year !</p>
+<p>The actual prediction is :</p>
+{{ results }}
+<div>
+    <a href="choose_song"><button class="btn btn-link">Again ?</button></a>
+</div>
 {% endblock %}
