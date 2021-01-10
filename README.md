@@ -21,4 +21,4 @@ Our leads to further improve the models are :
 - **Splitting the features**, and treat individually the _mean_, _variance_ and _covariance_ of the timbres
 - Trying different **activation functions** : for now we have not tried **tanh** for exemple, which could --at least for the first layer-- reduce the impact of outliers (especially for the covariance features)
 - **Oversample/Undersample** : to artificially change the distribution of the features using a clever pre-processing protocol
-- Change the **loss fuction**, we have used MSE but we could try using our custom metric (defined in the notebook)
+- Change the **loss function**, we have used MSE but we could try using our custom metric (defined in the notebook)
