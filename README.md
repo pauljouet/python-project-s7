@@ -14,11 +14,10 @@ The Jupyter Notebook is quite readable (not a lot of lines printed by different 
 
 ## Conclusions
 
-Using deep learning we managed to fit interesting models, given the difficulty of the task and spreadness of the data, our models are only able to predict years close to 2000, but will give more accurate answers in a wider range than any other machine learning model. 
+Using deep learning we managed to fit interesting models, given the difficulty of the task and spreadness of the data, our models are only able to predict years close to 2000, but will give more accurate answers in a wider range than any other machine learning model. Tuning the model even further will not help much more.
 
 Our leads to further improve the models are :
 
 - **Splitting the features**, and treat individually the _mean_, _variance_ and _covariance_ of the timbres
-- Trying different **activation functions** : for now we have not tried **tanh** for exemple, which could --at least for the first layer-- reduce the impact of outliers (especially for the covariance features)
 - **Oversample/Undersample** : to artificially change the distribution of the features using a clever pre-processing protocol
 - Change the **loss function**, we have used MSE but we could try using our custom metric (defined in the notebook)
