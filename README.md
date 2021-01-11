@@ -12,6 +12,8 @@ We developped an API using Flask, when launching the server using 'app.py', use 
 
 The Jupyter Notebook is quite readable (not a lot of lines printed by different models) and provides more information than the presentation and the README.md, to use it the working directory should be 'python-project-s7'.
 
+The dataset 'YearPredictionMSD.txt' is too heavy to share on github, you should download it through [this link](https://archive.ics.uci.edu/ml/machine-learning-databases/00203/YearPredictionMSD.txt.zip) and unzip it into the 'data' folder of our repositery.
+
 ## Conclusions
 
 Using deep learning we managed to fit interesting models, given the difficulty of the task and spreadness of the data, our models are only able to predict years close to 2000, but will give more accurate answers in a wider range than any other machine learning model. Tuning the model even further will not help much more.
